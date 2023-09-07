@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Amity Global Employment Services Pvt. Ltd</title>
+        <link rel="stylesheet" href="{% static 'amity/style.css' %}">
+    </head>
+    <body>
+        <div class="main-cont">
+            <div class="image-cont">
+                <img src="{% static 'amity/image/image2.jpeg' %}" alt="" class="w-full">
+                <div>
+                    <a href="{% url 'home' %}" class="button">Enter</a>
+                </div>
+            </div>
+            <div class="image-cont">
+                <img src="{% static 'amity/image/image1.jpeg' %}" alt="" class="w-full">
+                <div>
+                    <a href="http://amityglobalgroup.com/" class="button">Enter</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

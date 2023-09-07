@@ -1,0 +1,108 @@
+{% extends "amity_global/base.html" %}
+{% load static %}
+{% block content %}
+  <!-- Navbar Start -->
+  {% for gallery in gall1 %}
+    <section class="banner">
+      <div class="image-cont">
+        <img src="{{ gallery.slider_image.url }}" alt="" class="w-full" style="height:100%; object-fit: cover;">
+      </div>
+      <h2>{{ gallery.caption }}</h2>
+      <div class="overylay"></div>
+    </section>
+    <!-- Navbar End -->
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+          <div class="modal-header border-0">
+            <button type="button"
+                    class="btn bg-white btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex align-items-center justify-content-center">
+            <div class="input-group" style="max-width: 600px;">
+              <input type="text"
+                     class="form-control bg-transparent border-primary p-3"
+                     placeholder="Type search keyword">
+              <button class="btn btn-primary px-4">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Full Screen Search End -->
+    <!-- galler Start -->
+    <section class="section-padding py-5">
+      <div class="container">
+        <h3 class="text-center mb-4">{{ gallery.caption }}</h3>
+        <div class="gallery-view">
+          <div class="row" id="lightgallery">
+            {% for gallery_item in page_obj %}
+              <div class="item col-md-4 pb-3" data-src="img/gallery-img.jpg" data-sub-html="
+                <h4>Login Int'l</h4>
+                ">
+                <a href="">
+                  <img class="w-100"
+                       src="{{ gallery_item.bannerimage.url }}"
+                       alt="Login Int'l" />
+                </a>
+              </div>
+            {% endfor %}
+            {% comment %} <div class="item col-md-4 pb-3" data-src="img/gallery-img.jpg" data-sub-html=" <h4>Login Int'l</h4> ">
+            <a href="">
+              <img class="w-100" src="img/gallery-img.jpg" alt="Login Int'l" />
+            </a>
+          </div>
+          <div class="item col-md-4 pb-3" data-src="img/gallery-img.jpg" data-sub-html=" <h4>Login Int'l</h4> ">
+            <a href="">
+              <img class="w-100" src="img/gallery-img.jpg" alt="Login Int'l" />
+            </a>
+          </div>
+          <div class="item col-md-4 pb-3" data-src="img/gallery-img.jpg" data-sub-html=" <h4>Login Int'l</h4> ">
+            <a href="">
+              <img class="w-100" src="img/gallery-img.jpg" alt="Login Int'l" />
+            </a>
+            </div> {% endcomment %}
+          </div>
+        </div>
+        <!-- Pagination Links -->
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">First</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"
+                   href="?page={{ page_obj.previous_page_number }}"
+                   aria-label="Previous">Previous</a>
+              </li>
+            {% endif %}
+            {% for i in page_obj.paginator.page_range %}
+              <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+              </li>
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link"
+                   href="?page={{ page_obj.next_page_number }}"
+                   aria-label="Next">Next</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"
+                   href="?page={{ page_obj.paginator.num_pages }}"
+                   aria-label="Last">Last</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        <!-- Remaining template code -->
+      </section>
+    {% endfor %}
+    <!-- galler end -->
+  {% endblock content %}

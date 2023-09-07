@@ -1,0 +1,119 @@
+{% extends "amity_global/base.html" %}
+{% load static %}
+{% block content %}
+  <!-- Navbar Start -->
+  <div class="container-fluid position-relative p-0">
+    <div class="container-fluid bg-primary py-5 bg-header"
+         style="margin-bottom: 90px">
+      <div class="row py-5">
+        <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+          <h1 class="display-4 text-white animated zoomIn">Jobs-Category</h1>
+          <a href="index.html" class="h5 text-white">Home</a>
+          <i class="far fa-circle text-white px-2"></i>
+          <a href="" class="h5 text-white">Jobs-Category</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Navbar End -->
+  <!-- Full Screen Search Start -->
+  <div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+        <div class="modal-header border-0">
+          <button type="button"
+                  class="btn bg-white btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex align-items-center justify-content-center">
+          <div class="input-group" style="max-width: 600px;">
+            <input type="text"
+                   class="form-control bg-transparent border-primary p-3"
+                   placeholder="Type search keyword">
+            <button class="btn btn-primary px-4">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Full Screen Search End -->
+  <!-- Start Portfolio -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="job-container">
+          <a href="">
+            <div class="job-card">
+              <category-title>
+              Unskilled
+              </category-title>
+              <category-body>
+              <ol>
+                <li>Cleaner</li>
+                <li>Labourers</li>
+                <li>Office Boy</li>
+                <li>Agricultural Workers</li>
+                <li>Sweepers</li>
+                <li>Peons</li>
+                <li>Watchman/Guard</li>
+              </ol>
+              </category-body>
+            </div>
+          </a>
+          <a href="">
+            <div class="job-card">
+              <category-title>
+              Semi-Skilled
+              </category-title>
+              <category-body>
+              <ol>
+                <li>Farmers and ranchers</li>
+                <li>Agricultural technicians and laborers</li>
+                <li>Agricultural equipment operators</li>
+                <li>Livestock handlers</li>
+                <li>Agricultural sale representatives</li>
+                <li>Agricultural processors and packagers</li>
+                <li>Agricultural educators and trainers</li>
+                <li>Agricultural support staff</li>
+              </ol>
+              </category-body>
+            </div>
+          </a>
+          <a href="">
+            <div class="job-card">
+              <category-title>
+              Skilled
+              </category-title>
+              <category-body>
+              <ol>
+                <li>Engineers - Civil,Mechanicla,Computer</li>
+                <li>Architects</li>
+                <li>Plan Operators Electrical,Mechanical</li>
+                <li>Computer Programmer</li>
+                <li>Managers</li>
+                <li>Accountants</li>
+                <li>Doctors</li>
+                <li>Nurse Male/Female</li>
+                <li>Bank Specialist</li>
+              </ol>
+              </category-body>
+            </div>
+          </a>
+          <a href="">
+            <div class="job-card">
+              <category-title>
+              Highly-Skilled
+              </category-title>
+              <category-body>
+              </category-body>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio -->
+{% endblock content %}

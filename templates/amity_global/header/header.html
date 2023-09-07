@@ -1,0 +1,82 @@
+{% load static %}
+<!-- Topbar Start -->
+{% for globs in glob %}
+  <div class="container-fluid bg-white px-5 d-none d-lg-block">
+    <div class="d-flex justify-content-between align-items-center gap-2">
+      <div class=" text-center text-lg-start mb-2 mb-lg-0">
+        <div class="d-inline-flex align-items-center" style="height: 45px">
+          <small class="me-3 text-dark"><i class="fa fa-map-marker-alt me-2"></i>{{ globs.Sitelicence }}
+          </small>
+          <small class="me-3 text-dark"><i class="fa fa-phone-alt me-2"></i>{{ globs.SiteContact }}
+          </small>
+          <small class="text-dark"><i class="fa fa-envelope-open me-2"></i>{{ globs.SiteEmail }}</small>
+        </div>
+      </div>
+      <div class=" text-center text-lg-end">
+        <div class="d-inline-flex align-items-center" style="height: 45px">
+          <a class="d-flex justify-content-center align-items-center btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+             href="{{ globs.Sitetwitterlink }}"
+             target="_blank"><i class="fab fa-twitter fw-normal"></i></a>
+          <a class="d-flex justify-content-center align-items-center btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+             href="{{ globs.Sitefacebooklink }}"
+             target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+          <a class="d-flex justify-content-center align-items-center btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+             href="{{ globs.Sitelinkdinlink }}"
+             target="_blank"><i class="fab fa-linkedin-in fw-normal"></i></a>
+          <a class="d-flex justify-content-center align-items-center btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+             href="{{ globs.Siteinstagram }}"
+             target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+          <a class="d-flex justify-content-center align-items-center btn btn-sm btn-outline-light btn-sm-square rounded-circle"
+             href="{{ globs.Siteyoutubelink }}"
+             target="_blank"><i class="fab fa-youtube fw-normal"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<!-- Topbar End -->
+<!-- Navbar Start -->
+<div class="container-fluid position-relative p-0">
+  <nav class="navbar navbar-expand-lg bg-white px-5 py-3 py-lg-0">
+    <a href="{% url 'home' %}" class="navbar-brand p-2">
+      {% for globs in glob %}
+        <h1 class="m-0">
+          <img class="w-100" src="{{ globs.logo.url }}" alt="" />
+        </h1>
+      {% endfor %}
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse">
+      <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto py-0">
+        <a href="{% url 'home' %}" class="nav-item nav-link">Home</a>
+        {% for nav in main %}
+          {% if nav.id != 1 %}
+            {% if nav.id == 47 %}
+              <a href="{% url 'gallery' %}" class="nav-item nav-link">{{ nav.name }}</a>
+            {% elif nav.id == 200 %}
+              <a href="{% url 'Newspaperpub' %}" class="nav-item nav-link">{{ nav.name }}</a>
+            {% elif nav.childs.all %}
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ nav.name }}</a>
+                <div class="dropdown-menu m-0">
+                  {% for sub_nav in nav.childs.all %}
+                    {% if sub_nav.status == 'Publish' %}
+                      <a href="{% url 'submenu' name=sub_nav.id %}" class="dropdown-item">{{ sub_nav.name }}</a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            {% else %}
+              <a href="{% url 'menu' name=nav.id %}" class="nav-item nav-link">{{ nav.name }}</a>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- <a href="" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a> -->
+    </div>
+  </nav>

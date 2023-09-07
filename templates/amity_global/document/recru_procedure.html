@@ -1,0 +1,153 @@
+{% extends "amity_global/base.html" %}
+{% load static %}
+{% block content %}
+  {% for recruitment in recru %}
+    <!-- Navbar Start -->
+    <section class="banner">
+      <div class="image-cont">
+        <img src="{{ recruitment.slider_image.url }}" alt="" class="w-full" style="height:100%; object-fit: cover;">
+      </div>
+      <h2>{{ recruitment.name }}</h2>
+      <div class="overylay"></div>
+    </section>
+    {% comment %} <div class="container-fluid position-relative p-0">
+      <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px">
+        <div class="row py-5">
+          <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+            <h1 class="display-4 text-white animated zoomIn">{{ recruitment.caption }}</h1>
+            <a href="/" class="h5 text-white">Home</a>
+            <i class="far fa-circle text-white px-2"></i>
+            <a href="{% url 'recru_procedure' %}" class="h5 text-white">{{ recruitment.caption }}</a>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+    <!-- Navbar End -->
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+          <div class="modal-header border-0">
+            <button type="button"
+                    class="btn bg-white btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex align-items-center justify-content-center">
+            <div class="input-group" style="max-width: 600px;">
+              <input type="text"
+                     class="form-control bg-transparent border-primary p-3"
+                     placeholder="Type search keyword">
+              <button class="btn btn-primary px-4">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Full Screen Search End -->
+    <!-- .....................requ start........................ -->
+    <div class="container-fluid  wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-12">
+            <div class="section-title position-relative pb-3 mb-5">
+              <h5 class="fw-bold text-dark text-uppercase mt-5">{{ recruitment.caption }}</h5>
+            </div>
+            <p class="mt-4 col-lg-8">{{ recruitment.desc }}</p>
+            <h4 style="color: black;" class="text-start py-5">
+              {{ recruitment.title }}
+            </h2>
+            <div class="recu-step text-start">
+              <div class="employer">
+                <h3>{{ recruitment.meta_title }}</h3>
+                <div class="em-part">
+                  {% for proces in proce %}
+                    <p>
+                      {{ forloop.counter }} .<a href="{{ proces.brochure.url }}" target="_blank">{{ proces.caption }}</a> {{ proces.desc }}
+                    </p>
+                  {% endfor %}
+                </div>
+                {% comment %} <div class="em-part">
+                  <p>
+                    2. <a href="asset/letter_of_attorney.pdf">Power of Attorney</a> :As the name suggest, this letter authorizes Amity Global Employment Service Pvt. Ltd. for sending manpower legally. For Saudai letter should also include block visa no. & issued date
+                  </p>
+                </div>
+                <div class="em-part">
+                  <p>
+                    3. <a href="asset/guarantee_letter.pdf">Guarantee Letter</a> :This letter should be addressed to Director General, department of labor & employment promotion implying no workers would be sent to any other third countries.
+                  </p>
+                </div>
+                <div class="em-part">
+                  <p>
+                    4. <a href="asset/agency_agreement.pdf">Agency Agreement</a> : This is the agreement between Amity Global Employment Service Pvt. Ltd. & its client mentioning the salary, duty hour, etc as mentioned in demand letter. This letter should be signed by employing company.
+                  </p>
+                </div>
+                <div class="em-part">
+                  <p>
+                    5. <a href="asset/employment_contract_letter.pdf">Employment Contract</a> : This is a specimen of contract copy between employing company and candidates. This letter should also be signed by employing company.
+                  </p>
+                </div>
+                <div class="em-part">
+                  <p>
+                    6. Visa slip (required only for Saudi Arabia) : The original visa is required in case of Block visa. In case of multiple, photocopy of visa slip is also acceptable.
+                  </p>
+                </div>
+                <div class="em-part">
+                  <p>
+                    7. <a href="asset/consular_letter.pdf">COnsular Letter(required only for Saudi Arabia)</a> : This letter is to written by employing company to consular office authorizing the employment consultant for visa endorsement and other related legal process. As Nepal has no diplomatic mission of kingdom of Saudi Arabia, this letter should address near consular office or embassy.
+                  </p>
+                </div>
+                <div class="em-part">
+                  <p>
+                    9. <a href="asset/demand-letter.pdf">Company registration (C.R. Photocopy only)</a> : (This Demand letter/ Power of Attorney/ Consular Letter must be duly endorsement by the Ministry of Foreign Affairs and Chamber of Commerce and finally attested by the Nepalese Embassy existing in the country of employment and letter of Authority / Agency Agreement / Employment Agreement / Guarantee Letter must be attested by the Nepalese Embassy)
+                    (Note: Please make sure that every single page is print out in company letter head and rubber stamped with initial signature)
+                  </p>
+                </div>
+                <div class="em-part">
+                  <p>
+                    <strong>For Malaysia</strong>
+                  </p>
+                  <p>
+                    Note: All the above documents must be endorsed from the Nepal Embassy apart from male- manufacturing Sector (Male manufacturing is acceptable endorse by authorized notary public, notary chop is needed in every single page) and also please make sure that every single page is print out in company letter head and rubber stamped with initial signature)
+                  </p>
+                </div> {% endcomment %}
+              </div>
+              <div class="agency">
+                {% comment %} <h3>Agencies’ Part:</h3> {% endcomment %}
+                <div class="ag-part">
+                  <p>
+                   {% autoescape off %}{{ recruitment.short_desc }}{% endautoescape %} 
+                  </p>
+                </div>
+                {% comment %} <div class="ag-part">
+                  <p>
+                    2. Medical Checkup: After final selection we send the workers/ candidates for medical checkup by the authorized medical center of the respective Embassies of the country of employment.
+                  </p>
+                </div>
+                <div class="ag-part">
+                  <p>
+                    3. Application for visa: After final selection we send the workers/ candidates for medical checkup by the authorized medical center of the respective Embassies of the country of employment.
+                  </p>
+                </div>
+                <div class="ag-part">
+                  <p>
+                    4. Ticketing and Emigration: The employer may send remit necessary travelling expenses in favor of Amity Global Employment Service Pvt. Ltd. to facilitate travelling as scheduled. We obtain emigration clearance from the concerned Govt. Dept. for the candidates.
+                  </p>
+                </div>
+                <div class="ag-part">
+                  <p>
+                    5. Orientation before departure: Amity Global Employment Service Pvt. Ltd. provides basic orientation to workers before travelling abroad. The workers are informed about their duties and responsibilities while abroad and first-hand information of work environment there & salient features of labour laws of the country of employment.
+                  </p>
+                </div> {% endcomment %}
+              </div>
+              <!-- <img src="img/process-flow.png" alt="process flow diagram"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  <!-- .....................requ end........................ -->
+{% endblock content %}

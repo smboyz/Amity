@@ -1,0 +1,32 @@
+<div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About</a>
+    <div class="dropdown-menu m-0">
+        <a href="{% url 'about' %}" class="dropdown-item">About Company</a>
+        <a href="{% url 'legaldoc' %}" class="dropdown-item">Registration/Approval</a>
+        <a href="{% url 'massage_cha' %}" class="dropdown-item">Our Message</a>
+        <a href="{% url 'commitment' %}" class="dropdown-item">Our Commitment</a>
+        <a href="{% url 'vision' %}" class="dropdown-item">Vision</a>
+        <a href="{% url 'mission' %}" class="dropdown-item">Mission</a>
+        <a href="{% url 'org_chart' %}" class="dropdown-item">Organizational Chart</a>
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Documents</a>
+    <div class="dropdown-menu m-0">
+        <a href="{% url 'demand' %}" class="dropdown-item">Demand Letter</a>
+        <a href="{% url 'recru_procedure' %}" class="dropdown-item">Recruiting Procedure</a>
+        <a href="{% url 'recu_documents' %}" class="dropdown-item">Recruiting Documents</a>
+    </div>
+</div>
+<div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">JobsCategory</a>
+    <div class="dropdown-menu m-0">
+        <a href="{% url 'unskilled' %}" class="dropdown-item">Unskilled</a>
+        <a href="{% url 'semiskilled' %}" class="dropdown-item">Semi-Skilled</a>
+        <a href="{% url 'skilled' %}" class="dropdown-item">Skilled</a>
+        <a href="{% url 'highskilled' %}" class="dropdown-item">Highly-Skilled</a>
+    </div>
+</div>
+<a href="{% url 'Newspaperpub' %}" class="nav-item nav-link">Newspaper Vacancy</a>
+<a href="{% url 'gallery' %}" class="nav-item nav-link">Gallery</a>
+<a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>

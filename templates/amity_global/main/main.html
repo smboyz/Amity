@@ -1,0 +1,568 @@
+{% load static %}
+<!-- Navbar End -->
+<div class="container-fluid position-relative p-0">
+  <div id="header-carousel"
+       class="carousel slide carousel-fade"
+       data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for slider in sli %}
+        {% if slider.slider_image %}
+          <div class="carousel-item {% if forloop.counter == 1 %}active{% endif %}">
+            <div class="carousel carousel-{{ forloop.counter }}">
+              <img class="w-100" src="{{ slider.slider_image.url }}" alt="Image" />
+            </div>
+            <div class="carousel-caption d-flex flex-column align-items-start justify-content-center">
+              <div style="max-width: 500px; padding-left: 70px;">
+                <h1 class="upper-text text-white mb-3 animated slideInDown">{{ slider.caption }}</h1>
+                <h2 class="lower-text text-white mb-md-4 animated zoomIn">{{ slider.title }}</h2>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <button class="carousel-control-prev"
+          type="button"
+          data-bs-target="#header-carousel"
+          data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next"
+          type="button"
+          data-bs-target="#header-carousel"
+          data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Navbar & Carousel End -->
+<!-- About Start -->
+{% for about in abo %}
+  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-7">
+          <div class="section-title position-relative pb-3 mb-5">
+            <h5 class="fw-bold text-dark text-uppercase">{{ about.caption }}</h5>
+            <h1 class="mb-0">{{ about.title }}</h1>
+          </div>
+          <p class="mb-4">
+            {% autoescape off %}
+              {{ about.short_desc }}
+            {% endautoescape %}
+          </p>
+          <a href="{% url 'about' %}"
+             class="btn btn-primary py-3 px-5 mt-3 wow zoomIn"
+             data-wow-delay="0.9s">View More</a>
+        </div>
+        <div class="col-lg-5" style="min-height: 500px">
+          <div class="position-relative h-100">
+            <img class="position-absolute w-100 h-100 abt-img wow zoomIn"
+                 data-wow-delay="0.9s"
+                 src="{{ about.bannerimage.url }}"
+                 style="object-fit: cover"
+                 alt="about image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<!-- About End -->
+<!-- Features Start -->
+{% for amity in ser1 %}
+  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto"
+           style="max-width: 600px">
+        <!-- <h5 class="fw-bold text-dark text-uppercase">Why Choose Us</h5> -->
+        <h1 class="mb-0">{{ amity.title }}</h1>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="row g-5">
+            {% for sers in ser %}
+              <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
+                <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3"
+                     style="width: 60px;
+                            height: 60px">
+                  <i class="{{ sers.icon_image }}"></i>
+                </div>
+                <h4>{{ sers.name }}</h4>
+                <p class="mb-0">{{ sers.desc }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-lg-4 wow zoomIn"
+             data-wow-delay="0.9s"
+             style="min-height: 350px">
+          <div class="position-relative h-100">
+            <img class="position-absolute w-100 h-100 rounded wow zoomIn"
+                 data-wow-delay="0.1s"
+                 src="{{ amity.bannerimage.url }}"
+                 style="object-fit: cover" />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="row g-5">
+            {% for sers in ser2 %}
+              <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
+                <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3"
+                     style="width: 60px;
+                            height: 60px">
+                  <i class="{{ sers.icon_image }}"></i>
+                </div>
+                <h4>{{ sers.name }}</h4>
+                <p class="mb-0">{{ sers.desc }}</p>
+              </div>
+            {% endfor %}
+            {% comment %} <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
+              <div class="bg-primary rounded d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px">
+                <i class="bi bi-stars text-white"></i>
+              </div>
+              <h4>{{ amity.meta_title }}</h4>
+              <p class="mb-0">{{ amiyt.meta_keyword }}</p>
+            </div> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<!-- Features Start -->
+<!-- Service Start -->
+{% for home in title %}
+  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto"
+           style="max-width: 600px">
+        <h5 class="fw-bold text-dark text-uppercase">{{ home.caption }}</h5>
+        <!-- <h1 class="mb-0">Custom IT Solutions for Your Successful Business</h1> -->
+      </div>
+      <div class="row d-flex justify-content-center g-5">
+        {% for ours in our %}
+          <div class="col-lg-3 col-md-6 wow zoomIn" data-wow-delay="0.3s">
+            <div class="p-4 service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+              <!-- <div class="service-icon">
+                <i class="fa fa-shield-alt text-white"></i>
+              </div> -->
+              <h4 class="mb-3">{{ ours.caption }}</h4>
+              <p class="m-0">{{ ours.desc }}</p>
+              <a class="btn btn-lg btn-primary rounded" href="{% url 'service' %}">
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+      <!-- <div class="col-lg-3 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+            <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+              <div class="service-icon">
+                <i class="fa fa-search text-white"></i>
+              </div>
+              <h4 class="mb-3">Career development and training</h4>
+              <p class="m-0">
+                We offer support and guidance for employees to help them grow
+                and advance in their careers.
+              </p>
+              <a class="btn btn-lg btn-primary rounded" href="">
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+            <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+              <div class="service-icon">
+                <i class="fa fa-search text-white"></i>
+              </div>
+              <h4 class="mb-3">Employee placement</h4>
+              <p class="m-0">
+                We offer permanent and temporary staffing solutions, including
+                contract and project-based hiring.
+              </p>
+              <a class="btn btn-lg btn-primary rounded" href="">
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+</div> -->
+    </div>
+  </div>
+</div>
+<!-- Service End -->
+<!-- Procedure Steps -->
+{% for require in req %}
+  <div class="container-fluid py-5 position-relative">
+    <!-- <div class="gradient-1"></div> -->
+    <div class="section-title pb-3 text-center position-relative mb-5 mx-auto"
+         style="max-width: 600px">
+      <h1 class="mb-0 text-center">{{ require.caption }}</h1>
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <img class="w-100"
+               src="{{ require.bannerimage.url }}"
+               alt="PRocedure for requirement">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<!-- <div class="gradient-2"></div> -->
+<!-- <div class="container-fluid">
+      <div class="container mx-auto">
+        <div class="row card-con">
+          <div class="step-card">
+            <div class="stepno">Step 1</div>
+            <div class="step-icon">
+              <img src="{% static 'img/documents-step1.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Receive Legal Documents</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="stepno">Step 2</div>
+            <div class="step-icon">
+              <img src="{% static 'img/preapprova-step2.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Pre-Approval from Ministry of Labour Department</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="stepno">Step 3</div>
+            <div class="step-icon">
+              <img src="{% static 'img/vacancyAnnouncement-step3.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Vacancy Announcement</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="stepno">Step 4</div>
+            <div class="step-icon">
+              <img src="{% static 'img/candidateInterview-step4.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Candidate Interview</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="stepno">Step 5</div>
+            <div class="step-icon">
+              <img src="{% static 'img/PremedCheckup-step5.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Pre Medical Checkup</p>
+            </div>
+          </div>
+        </div>
+        <div class="row card-con">
+          <div class="step-card">
+            <div class="stepno">Step 6</div>
+            <div class="step-icon">
+              <img src="{% static 'img/Visa Processing-step6.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Visa Processing</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="stepno">Step 7</div>
+            <div class="step-icon">
+              <img src="{% static 'img/Orientation&Approval-step7.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Orientation & Approval from Ministry of labour Department</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="stepno">Step 8</div>
+            <div class="step-icon">
+              <img src="{% static 'img/PredepartureOrientation-step8.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Pre-Departure Orientation</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="stepno">Step 9</div>
+            <div class="step-icon">
+              <img src="{% static 'img/Travel-step9.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Deployment/Travel</p>
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="stepno">Step 10</div>
+            <div class="step-icon">
+              <img src="{% static 'img/Arrival-step10.svg" width="60" height="60" alt="">
+            </div>
+            <div class="step-title">
+              <p>Arrival at Company</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+</div>
+<!-- Procedure Steps  END -->
+<!-- Countries we serve start -->
+{% for cons in con1 %}
+  <div class="py-5">
+    <div class="section-title text-center position-relative pb-3 mb-5 mx-auto"
+         style="max-width: 600px">
+      <h1 class="mb-0 text-center">{{ cons.caption }}</h1>
+    </div>
+    <div class="container-fluid countries-we-serve mt-4">
+      {% for conts in cont %}
+        {% if conts.bannerimage %}
+          <div class="country">
+            <a href="{% url 'country' id=conts.pk %}">
+              <img src="{{ conts.bannerimage.url }}" alt="image of saudi">
+              <p>{{ conts.name }}</p>
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    {% comment %} <div class="country">
+      <a href="{% url 'uae' %}">
+        <img src="{% static 'countries/UAEDemand.jpg' %}" alt="image of UAE">
+        <p>UAE</p>
+      </a>
+    </div>
+    <div class="country">
+      <a href="{% url 'japan' %}">
+        <img src="{% static 'countries/JapanDemand.jpg' %}" alt="image of qatar">
+        <p>Japan</p>
+      </a>
+    </div>
+    <div class="country">
+      <a href="{% url 'qatar' %}">
+        <img src="{% static 'countries/QatarDemand.jpg' %}" alt="image of qatar">
+        <p>Qatar</p>
+      </a>
+    </div>
+    <div class="country">
+      <a href="{% url 'malaysia' %}">
+        <img src="{% static 'countries/MalaysiaDemand.jpg' %}" alt="image of malaysia">
+        <p>Malaysia</p>
+      </a>
+    </div>
+    <div class="country">
+      <a href="{% url 'kuwait' %}">
+        <img src="{% static 'countries/kuwaitDemand.jpg' %}" alt="image of kuwait">
+        <p>Kuwait</p>
+      </a>
+    </div>
+    <div class="country">
+      <a href="{% url 'oman' %}">
+        <img src="{% static 'countries/OMANdemand.jpg' %}" alt="image of oman">
+        <p>OMAN</p>
+      </a>
+    </div>
+    <div class="country">
+      <a href="">
+        <img src="{% static 'countries/switze.jpg' %}" alt="image of oman">
+        <p>EUROPE</p>
+      </a>
+    </div> {% endcomment %}
+  </div>
+</div>
+<!-- countires we serve end -->
+<!-- Pricing Plan Start -->
+{% for tens in ten %}
+  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+      <div class="section-title text-center position-relative pb-3 mb-5 mx-auto"
+           style="max-width: 600px">
+        <!-- <h5 class="fw-bold text-primary text-uppercase">Pricing Plans</h5> -->
+        <h1 class="mb-0">{{ tens.caption }}</h1>
+      </div>
+      <div class="row g-0">
+        <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
+          <div class="bg-light rounded">
+            <div class="border-bottom py-4 px-5 mb-4">
+              <h4 class="text-dark mb-1">{{ tens.title }}</h4>
+              <!-- <small class="text-uppercase">For Small Size Business</small> -->
+            </div>
+            <div class="p-5 pt-0">
+              {% for pools in pool %}
+                <div class="d-flex justify-content-between mb-3">
+                  <span>{{ pools.caption }}</span>
+                  <i class="fa fa-check text-dark pt-1"></i>
+                </div>
+              {% endfor %}
+              {% comment %} <div class="d-flex justify-content-between mb-3">
+              <span>Labourers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <span>Office Boy</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Agricultural Workers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Sweepers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Peons</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Watchman/Guard</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+              </div> {% endcomment %}
+              <!-- <a href="" class="btn btn-primary py-2 px-4 mt-4">Order Now</a> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
+          <div class="bg-white rounded shadow position-relative" style="z-index: 1">
+            <div class="border-bottom py-4 px-5 mb-4">
+              <h4 class="text-dark mb-1">{{ tens.meta_keyword }}</h4>
+              <!-- <small class="text-uppercase">For Medium Size Business</small> -->
+            </div>
+            <div class="p-5 pt-0">
+              {% for pools in pool1 %}
+                <div class="d-flex justify-content-between mb-3">
+                  <span>{{ pools.caption }}</span>
+                  <i class="fa fa-check text-dark pt-1"></i>
+                </div>
+              {% endfor %}
+              {% comment %} <div class="d-flex justify-content-between mb-3">
+              <span>Architects</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <span>Plan Operators Electrical,Mechanical</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Computer Programmer</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Managers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Accountants</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Doctors</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Nurse Male/Female</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Bank Specialist</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+              </div> {% endcomment %}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
+          <div class="bg-light rounded">
+            <div class="border-bottom py-4 px-5 mb-4">
+              <h4 class="text-dark mb-1">{{ tens.meta_title }}</h4>
+              <!-- <small class="text-uppercase">For Large Size Business</small> -->
+            </div>
+            <div class="p-5 pt-0">
+              {% for pools in pool2 %}
+                <div class="d-flex justify-content-between mb-3">
+                  <span>{{ pools.caption }}</span>
+                  <i class="fa fa-check text-dark pt-1"></i>
+                </div>
+              {% endfor %}
+              {% comment %} <div class="d-flex justify-content-between mb-3">
+              <span>Agricultural technicians and laborers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <span>Agricultural equipment operators</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Livestock handlers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Agricultural sale representatives</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Agricultural processors and packagers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Agricultural educators and trainers</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Agricultural support staff</span>
+              <i class="fa fa-check text-dark pt-1"></i>
+              </div> {% endcomment %}
+              <!-- <a href="" class="btn btn-primary py-2 px-4 mt-4">Order Now</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'service' %}"
+         class="btn btn-primary py-3 px-5 mt-3 wow zoomIn job"
+         data-wow-delay="0.9s">Read
+      More</a>
+    </div>
+  </div>
+{% endfor %}
+<!-- Pricing Plan End -->
+<!-- Testimonial Start -->
+{% for tests in test1 %}
+  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+      <div class="section-title text-center position-relative pb-3 mb-4 mx-auto"
+           style="max-width: 600px">
+        <h5 class="fw-bold text-dark text-uppercase">{{ tests.caption }}</h5>
+      </div>
+      <div class="owl-carousel testimonial-carousel wow fadeInUp"
+           data-wow-delay="0.6s">
+        {% for tests in test %}
+          <div class="testimonial-item bg-light my-4">
+            <div class="d-flex align-items-center border-bottom pt-5 pb-4 px-5">
+              <img class="img-fluid rounded"
+                   src="{{ tests.bannerimage.url }}"
+                   style="width: 60px;
+                          height: 60px" />
+              <div class="ps-4">
+                <h4 class="text-dark mb-1">{{ tests.name }}</h4>
+                <small class="text-uppercase">{{ tests.caption }}</small>
+              </div>
+            </div>
+            <div class="pt-4 pb-5 px-5">{{ tests.desc }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<!-- Testimonial End -->
+

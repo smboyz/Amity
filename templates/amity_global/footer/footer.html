@@ -1,0 +1,141 @@
+{% load static %}
+<!-- Vendor Start -->
+{% for vens in ven1 %}
+  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container mb-5">
+      <div class="bg-white">
+        <h3 class="fw-bold text-dark text-uppercase">{{ vens.caption }}</h3>
+        <div class="owl-carousel vendor-carousel">
+          {% for vens in ven %}
+            {% if vens.bannerimage %}<img src="{{ vens.bannerimage.url }}" alt="Vendor Name" />{% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<!-- Vendor End -->
+<!-- Footer Start -->
+{% for globs in glob %}
+  <div class="container-fluid bg-white text-dark mt-0 wow fadeInUp"
+       data-wow-delay="0.1s">
+    <div class="container">
+      <div class="row">
+        <!-- FooterABOUT -->
+        <div class="col-lg-3 col-md-6 col-sm-6 footer-about">
+          <div class="d-flex flex-column align-items-center justify-content-start text-center h-100 mt-5">
+            <a href="index.html" class="navbar-brand">
+              <h1 class="m-0 text-white">
+                <img class="w-100" src="{{ globs.logo.url }}" alt="" />
+              </h1>
+            </a>
+            <p class="mt-3 mb-4">{{ globs.Sitedescription }}</p>
+          </div>
+        </div>
+        <!-- Footer ABout END -->
+        <!-- FOOTER CONTACT -->
+        <div class="col-lg-3 col-md-6 col-sm-6 pt-5">
+          <div class="section-title section-title-sm position-relative pb-3 mb-4">
+            <h3 class="text-dark mb-0">Contact</h3>
+          </div>
+          <div class="d-flex mb-2">
+            <i class="bi bi-geo-alt text-dark me-2"></i>
+            <p class="mb-0">{{ globs.SiteAddress }}</p>
+          </div>
+          <div class="d-flex mb-2">
+            <i class="bi bi-envelope-open text-dark me-2"></i>
+            <p class="mb-0">{{ globs.SiteEmail }}</p>
+          </div>
+          <div class="d-flex mb-2">
+            <i class="bi bi-telephone text-dark me-2"></i>
+            <p class="mb-0">{{ globs.SiteContact }}</p>
+          </div>
+          <div class="d-flex mt-4">
+            <a class="d-flex justify-content-center align-items-center btn btn-dark btn-square me-2"
+               href="{{ globs.Sitetwitterlink }}"
+               target="_blank"><i class="fab fa-twitter fw-normal"></i></a>
+            <a class="d-flex justify-content-center align-items-center btn btn-dark btn-square me-2"
+               href="{{ globs.Sitefacebooklink }}"
+               target="_blank"><i class="fab fa-facebook-f fw-normal"></i></a>
+            <a class="d-flex justify-content-center align-items-center btn btn-dark btn-square me-2"
+               href="{{ globs.Sitelinkdinlink }}"
+               target="_blank"><i class="fab fa-linkedin-in fw-normal"></i></a>
+            <a class="d-flex justify-content-center align-items-center btn btn-dark btn-square me-2"
+               href="{{ globs.Siteinstagram }}"
+               target="_blank"><i class="fab fa-instagram fw-normal"></i></a>
+            <a class="d-flex justify-content-center align-items-center btn btn-dark btn-square"
+               href="{{ globs.Siteyoutubelink }}"
+               target="_blank"><i class="fab fa-youtube fw-normal"></i></a>
+          </div>
+        </div>
+        <!-- FOOTER CONTACT END -->
+        <!-- FOOTER QUICK LINKS -->
+        <div class="col-lg-3 col-md-6 col-sm-6 pt-0 pt-lg-5 mb-5">
+          <div class="section-title section-title-sm position-relative pb-3 mb-4">
+            <h3 class="text-dark mb-0">Quick Links</h3>
+          </div>
+          <div class="link-animated d-flex flex-column justify-content-start">
+            <a class="text-dark mb-2" href="/"><i class="bi bi-arrow-right text-dark me-2"></i>Home</a>
+            <a class="text-dark mb-2" href="{% url 'about' %}"><i class="bi bi-arrow-right text-dark me-2"></i>About Us</a>
+            <a class="text-dark mb-2" href="{% url 'demand' %}"><i class="bi bi-arrow-right text-dark me-2"></i>Documents</a>
+            <a class="text-dark mb-2" href=""><i class="bi bi-arrow-right text-dark me-2"></i>Job Category</a>
+            <a class="text-dark mb-2" href="{% url 'org_chart' %}"><i class="bi bi-arrow-right text-dark me-2"></i>Organizational
+            Chart</a>
+            <a class="text-dark" href="{% url 'contact' %}"><i class="bi bi-arrow-right text-dark me-2"></i>Contact Us</a>
+          </div>
+          <section class="">
+            <div class="country-title ">
+              <a href="{{ globs.brochure.url }}" target="_blank">{{ globs.brochure_name }}
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     width="60px"
+                     height="26px"
+                     fill="currentColor"
+                     class="bi bi-file-earmark-arrow-down"
+                     viewBox="0 0 16 16">
+                  <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z" />
+                  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+                </svg>
+              </a>
+            </div>
+          </section>
+        </div>
+        <!-- FOOTER QUICKLINS END -->
+        <!-- FOOTER MAP -->
+        <div class="col-lg-3 col-md-6 col-sm-6 pt-0 pt-lg-5 mb-5">
+          <div class="section-title section-title-sm position-relative pb-3 mb-4">
+            <h3 class="text-dark mb-0">Map</h3>
+          </div>
+          <div class="link-animated d-flex flex-column justify-content-start">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2357.075124405027!2d85.32286374645743!3d27.728945989500744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19370d71a32d%3A0xc3355d3abf9f8f90!2sAmity%20Global%20Employment%20Services!5e0!3m2!1sen!2snp!4v1687767746347!5m2!1sen!2snp"
+                    width="200"
+                    height="200"
+                    style="border: 0"
+                    class="w-100"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <!-- FOOTER MAP END -->
+      </div>
+    </div>
+  </div>
+{% endfor %}
+<div class="container-fluid text-dark" style="background: #eef9ff">
+  <div class="container text-center">
+    <div class="row justify-content-end">
+      <div class="col-lg-8 col-md-6">
+        <div class="d-flex align-items-center justify-content-center"
+             style="height: 75px">
+          <p class="mb-0">
+            &copy;
+            <a class="text-dark border-bottom" href="#">Amity Global Group |</a>© 2022 All Rights Reserved
+            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+            Designed by
+            <a class="text-dark border-bottom" href="https://radiantnepal.com/">Radiant Infotech</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer End -->

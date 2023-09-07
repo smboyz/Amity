@@ -1,0 +1,210 @@
+
+/* ...........................job-detail.......................... */
+.card {
+  width: 100%;
+  padding: 30px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.job-description-area {
+  padding-top: 50px;
+}
+.job-description-content {
+  padding-top: 30px;
+}
+.card-img img {
+  width: 100%;
+  padding: 28px;
+}
+.card-body {
+  width: 100%;
+}
+.card-body h5 {
+  color: #1899C8;
+  font-size: 17px;
+}
+.card-body span {
+  color: #ff9900 !important;
+}
+.card-title {
+  font-size: 15px;
+}
+.card-body ul li {
+  /* width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; */
+  list-style: none;
+}
+.btn {
+  color: #ffffff;
+  border: 1px solid #1899c8;
+  background: #1899c8;
+  border-radius: 5px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  /* margin-left: 15px; */
+}
+.btn:hover {
+  color: #1899C8 !important;
+  background: #ff9900;
+  border-color:#1899C8;
+  border: 1px solid #ff9900;
+}
+.border {
+  width: 100%;
+  border: 1px solid grey;
+}
+.job-req-content {
+  padding-top: 10px;
+}
+.job-req-content h5 {
+  font-size: 19px;
+}
+.job-req-content ul li {
+  list-style: none;
+  margin-left: -24px;
+}
+.job-req-content ul li span {
+  margin-left: 10px;
+}
+.job-req-content ul li i {
+  color:#1899C8;
+}
+
+/* ...........................job-detail.......................... */
+
+/* ...............................contact css start................................. */
+.contact-area-page {
+  width: 100%;
+  height: auto;
+  padding-top: 50px;
+  /* padding-bottom: 50px; */
+}
+
+.contact-tittle1 {
+  font-size: px;
+  font-weight: 400px;
+  color: #fff;
+}
+
+.contact-tittle2 {
+  font-size: 2px;
+  color: #fff;
+}
+
+.contact-form input {
+  border: none;
+  border-bottom: 1px solid;
+  margin-top: 20px;
+  display: flex;
+  align-content: center;
+  padding: 5px;
+  margin-bottom: 20px;
+  box-shadow: none;
+  border-color: #ced4da !important;
+}
+.form-control{
+  font-size: 14px;
+}
+.form-area button {
+  background-color: #c74044;
+  border: none;
+  margin-top: 10px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8vh;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ced4da !important;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.form-text-area {
+  padding: 8vh;
+}
+
+.form-area {
+  padding-top: 40px;
+  width: 100%;
+  padding: 65px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.contactus-button {
+  padding-top: 10px;
+}
+
+.form-text-area h1 {
+  font-size: 20px;
+}
+
+.form-text-area i {
+  padding: 8px;
+}
+
+.contact-area {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact-area ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.contact-area ul li {
+  padding: 10px;
+}
+
+.contact-area ul li a {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-tittle3 {
+  color: #fff;
+  /* text-transform: capitalize; */
+}
+.form-select:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: none !important;
+}
+.apply-form {
+  padding-bottom: 10px;
+}
+.apply-area {
+  width: 100%;
+  padding: 100px;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+  margin-top: 22px;
+  margin-bottom: 40px;
+}
+.container__img-holderrr img{
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 20px;
+  margin-left: 16px;
+  cursor: pointer;
+  border: 1px solid #e7dbdb;
+}
+/* ..................................contact css end............................... */
+
+
+
+

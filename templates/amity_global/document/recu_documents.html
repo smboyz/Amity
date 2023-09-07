@@ -1,0 +1,69 @@
+{% extends "amity_global/base.html" %}
+{% load static %}
+{% block content %}
+  {% for recru in rec %}
+    <!-- Navbar Start -->
+    <section class="banner">
+      <div class="image-cont">
+        <img src="{{ recru.slider_image.url }}" alt="" class="w-full" style="height:100%; object-fit: cover;">
+      </div>
+      <h2>{{ recru.caption }}</h2>
+      <div class="overylay"></div>
+    </section>
+    {% comment %} <div class="container-fluid position-relative p-0">
+      <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px">
+        <div class="row py-5">
+          <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+            <h1 class="display-4 text-white animated zoomIn">{{ recru.caption }}</h1>
+            <a href="/" class="h5 text-white">Home</a>
+            <i class="far fa-circle text-white px-2"></i>
+            <a href="{% url 'recu_documents' %}" class="h5 text-white">{{ recru.caption }}</a>
+          </div>
+        </div>
+      </div>
+    </div> {% endcomment %}
+    <!-- Navbar End -->
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+          <div class="modal-header border-0">
+            <button type="button"
+                    class="btn bg-white btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+          </div>
+          <div class="modal-body d-flex align-items-center justify-content-center">
+            <div class="input-group" style="max-width: 600px;">
+              <input type="text"
+                     class="form-control bg-transparent border-primary p-3"
+                     placeholder="Type search keyword">
+              <button class="btn btn-primary px-4">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Full Screen Search End -->
+    <!-- .....................requ start........................ -->
+    <div class="container-fluid  wow fadeInUp" data-wow-delay="0.1s">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-8">
+            <div class="section-title position-relative pb-3 mb-5">
+              <h5 class="fw-bold text-dark text-uppercase mt-5">{{ recru.title }}</h5>
+              <!-- <h1 class="mb-0">About Company:</h1> -->
+            </div>
+            <p class="mt-4">{{ recru.desc }}</p>
+            {% autoescape off %}
+              {{ recru.short_desc }}
+            {% endautoescape %}
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  <!-- .....................requ end........................ -->
+{% endblock content %}
